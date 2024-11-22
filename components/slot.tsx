@@ -1,10 +1,6 @@
 import * as React from "react";
 
-export type SlotProperty = Partial<{ slotted: boolean }>;
-
-export type SlotProps = React.HTMLAttributes<HTMLElement> & {
-  children: React.ReactNode;
-};
+export type SlotProps = React.HTMLAttributes<HTMLElement> & Partial<{ children: React.ReactNode; slotted: boolean }>;
 
 export function Slot(props: Partial<SlotProps>) {
   const { children, ...properties } = props;

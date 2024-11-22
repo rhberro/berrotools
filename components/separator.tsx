@@ -10,6 +10,6 @@ export function Separator(props: SeparatorProps, ref: React.Ref<HTMLDivElement>)
   return <div className={classes} data-orientation="horizontal" role="separator" {...properties} ref={ref} />;
 }
 
-const separatorVariants = cva("border-stone-300 border-b w-full my-6");
+const separatorVariants = cva("border-stone-200 border-b w-full my-6");
 
 Separator.displayName = "Separator";

@@ -2,9 +2,9 @@ import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 import { twMerge } from "tailwind-merge";
 
-import { Slot, SlotProperty } from "./slot";
+import { Slot, SlotProps } from "./slot";
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants> & SlotProperty;
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants> & SlotProps;
 
 export function Button(props: ButtonProps, ref: React.Ref<HTMLButtonElement>) {
   const { className, variant, size, slotted, ...properties } = props;

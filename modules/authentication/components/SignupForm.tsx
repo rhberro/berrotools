@@ -24,17 +24,17 @@ export function SignupForm(props: React.PropsWithChildren<SignupFormProps>) {
       <FieldSet disabled={pending}>
         <Label>
           Email
-          <MemoField as={Input} control={form.control} name="email" type="email" required />
+          <MemoField as={Input} control={form.control} name="email" placeholder="your@email.co" type="email" required />
         </Label>
         <Label>
           Password
-          <MemoField as={Input} control={form.control} name="password" type="password" required />
+          <MemoField as={Input} control={form.control} name="password" placeholder="•••••••" type="password" required />
         </Label>
       </FieldSet>
       <FormFooter control={form.control} pending={pending} />
       {state && state.message ? (
-        <Alert variant="destructive">
-          <AlertTitle>Failed to register!</AlertTitle>
+        <Alert variant="error">
+          <AlertTitle>Something went wrong!</AlertTitle>
           <AlertDescription>{state.message}</AlertDescription>
         </Alert>
       ) : null}
@@ -45,7 +45,7 @@ export function SignupForm(props: React.PropsWithChildren<SignupFormProps>) {
 const MemoField = React.memo(Field);
 
 const useFormParameters: UseFormProps<SignupFormValues> = {
-  defaultValues: { email: "rhberro@gmail.com", password: "11111111" },
+  defaultValues: { email: "", password: "" },
   resolver: zodResolver(SignupFormSchema),
   mode: "all",
 };

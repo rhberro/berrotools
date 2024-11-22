@@ -12,7 +12,7 @@ export function Label(props: LabelProps, ref: React.Ref<HTMLLabelElement>) {
 }
 
 const labelVariants = cva(
-  "flex flex-col text-sm text-stone-600 group has-[input]:gap-2 has-[input:disabled]:cursor-not-allowed has-[input:disabled]:opacity-70",
+  "flex flex-col text-sm text-stone-600 has-[input]:gap-2 has-[input:disabled]:cursor-not-allowed has-[input:disabled]:opacity-70",
   {
     variants: {
       inline: {

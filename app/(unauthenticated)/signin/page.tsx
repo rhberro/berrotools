@@ -12,25 +12,15 @@ export default function Signin() {
       <div className="flex flex-col flex-1 w-full max-w-[400px]">
         <Heading1>Welcome back</Heading1>
         <Paragraph>Sign in to your account</Paragraph>
-        <Button variant="outline" className="mt-10" size="large">
+        <Button className="mt-10" size="large" variant="outline" disabled>
           <GitHubLogoIcon className="w-6 h-6 text-stone-700" />
           Continue with GitHub
         </Button>
         <Separator />
         <SigninForm />
-        <Paragraph className="text-center mt-8" size="medium">
+        <Separator />
+        <Paragraph className="text-center" size="medium">
           Don&apos;t have an account? <Anchor href="/signup">Sign Up Now</Anchor>
-        </Paragraph>
-        <Paragraph className="text-center mt-16" size="small">
-          By continuing, you agree to Berro&apos;s{" "}
-          <Anchor href="/terms" size="small">
-            Terms of Service
-          </Anchor>{" "}
-          and{" "}
-          <Anchor href="/privacy" size="small">
-            Privacy Policy
-          </Anchor>
-          , and to receive periodic emails with updates.
         </Paragraph>
       </div>
     </main>

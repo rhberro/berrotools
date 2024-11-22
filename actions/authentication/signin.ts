@@ -8,18 +8,17 @@ import { createClientForServer } from "@/utilities/server";
 
 export async function signin(state: SigninFormState, form: FormData): Promise<SigninFormState | undefined> {
   const data: SigninFormValues = {
-    email: form.get('email') as string,
-    password: form.get('password') as string,
-    remember: form.get('remember') === 'true',
+    email: form.get("email") as string,
+    password: form.get("password") as string,
   };
   const validation = await SigninFormSchema.safeParse(data);
   if (validation.error && validation.error.errors) {
-    return { message: 'Wrong data.' };
+    return { message: "Failed to authenticate due to invalid form data." };
   }
   const client = await createClientForServer();
   const response = await client.auth.signInWithPassword(data);
   if (response.error) {
-    return { message: 'Invalid login credentials.' };
+    return { message: "Failed to authenticate due to invalid credentials." };
   }
   redirect("/dashboard");
 }

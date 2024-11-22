@@ -11,7 +11,7 @@ export function Paragraph(props: ParagraphProps, ref: React.Ref<HTMLParagraphEle
   return <p className={classes} {...properties} ref={ref} />;
 }
 
-const paragraphVariants = cva("text-stone-600 transition-colors", {
+const paragraphVariants = cva("text-stone-600", {
   variants: {
     size: {
       small: "text-xs",

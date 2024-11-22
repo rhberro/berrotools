@@ -13,7 +13,6 @@ import { SigninFormValues } from "@/interfaces/authentication/signin";
 import { SigninFormSchema } from "@/schemas/authentication/signin";
 import { Alert, AlertDescription, AlertTitle } from "@/components/alert";
 import { Label } from "@/components/label";
-import { Checkbox } from "@/components/checkbox";
 
 type SigninFormProps = React.FormHTMLAttributes<HTMLFormElement>;
 
@@ -25,21 +24,17 @@ export function SigninForm(props: React.PropsWithChildren<SigninFormProps>) {
       <FieldSet disabled={pending}>
         <Label>
           Email
-          <MemoField as={Input} control={form.control} name="email" type="email" placeholder="your@email.co" required />
+          <MemoField as={Input} control={form.control} name="email" placeholder="your@email.co" type="email" required />
         </Label>
         <Label>
           Password
-          <MemoField as={Input} control={form.control} name="password" type="password" placeholder="•••••••" required />
-        </Label>
-        <Label inline>
-          <MemoField as={Checkbox} control={form.control} name="remember" />
-          Remember me
+          <MemoField as={Input} control={form.control} name="password" placeholder="•••••••" type="password" required />
         </Label>
       </FieldSet>
       <FormFooter control={form.control} pending={pending} />
       {state && state.message ? (
-        <Alert variant="destructive">
-          <AlertTitle>Failed to authenticate!</AlertTitle>
+        <Alert variant="error">
+          <AlertTitle>Something went wrong!</AlertTitle>
           <AlertDescription>{state.message}</AlertDescription>
         </Alert>
       ) : null}
@@ -50,7 +45,7 @@ export function SigninForm(props: React.PropsWithChildren<SigninFormProps>) {
 const MemoField = React.memo(Field);
 
 const useFormParameters: UseFormProps<SigninFormValues> = {
-  defaultValues: { email: "", password: "", remember: false },
+  defaultValues: { email: "rhberro@gmail.com", password: "111222333" },
   resolver: zodResolver(SigninFormSchema),
   mode: "all",
 };
