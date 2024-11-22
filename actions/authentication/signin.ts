@@ -9,7 +9,8 @@ import { createClientForServer } from "@/utilities/server";
 export async function signin(state: SigninFormState, form: FormData): Promise<SigninFormState | undefined> {
   const data: SigninFormValues = {
     email: form.get('email') as string,
-    password: form.get('password') as string
+    password: form.get('password') as string,
+    remember: form.get('remember') === 'true',
   };
   const validation = await SigninFormSchema.safeParse(data);
   if (validation.error && validation.error.errors) {
