@@ -22,7 +22,7 @@ export default function Signin() {
           Don't have an account? <Anchor href="/signup">Sign Up Now</Anchor>
         </Paragraph>
         <Paragraph className="text-center mt-16" size="small">
-          By continuing, you agree to Berro&apos;s{" "}
+          By continuing, you agree to Berro's{" "}
           <Anchor href="/terms" size="small">
             Terms of Service
           </Anchor>{" "}
