@@ -19,10 +19,10 @@ export default function Signin() {
         <Separator />
         <SigninForm />
         <Paragraph className="text-center mt-8" size="medium">
-          Don't have an account? <Anchor href="/signup">Sign Up Now</Anchor>
+          Don&apos;t have an account? <Anchor href="/signup">Sign Up Now</Anchor>
         </Paragraph>
         <Paragraph className="text-center mt-16" size="small">
-          By continuing, you agree to Berro's{" "}
+          By continuing, you agree to Berro&apos;s{" "}
           <Anchor href="/terms" size="small">
             Terms of Service
           </Anchor>{" "}
