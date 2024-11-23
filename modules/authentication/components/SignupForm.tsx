@@ -50,7 +50,7 @@ const useFormParameters: UseFormProps<SignupFormValues> = {
   mode: "all",
 };
 
-type FormFooterProps = UseFormStateProps<any> & { pending: boolean };
+type FormFooterProps = UseFormStateProps<SignupFormValues> & { pending: boolean };
 
 function FormFooter(props: FormFooterProps) {
   const { pending, control } = props;

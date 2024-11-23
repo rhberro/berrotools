@@ -15,7 +15,7 @@ const alertVariants = cva("flex flex-col w-full rounded-md border px-4 py-3", {
   variants: {
     variant: {
       default: "border-stone-700 text-stone-700",
-      error: "border-red-700 text-red-700",
+      error: "border-red-700 text-red-700 bg-red-50",
       success: "border-green-700 text-green-700",
       warning: "border-yellow-700 text-yellow-700",
     },

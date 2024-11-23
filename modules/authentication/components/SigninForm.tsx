@@ -45,7 +45,7 @@ export function SigninForm(props: React.PropsWithChildren<SigninFormProps>) {
 const MemoField = React.memo(Field);
 
 const useFormParameters: UseFormProps<SigninFormValues> = {
-  defaultValues: { email: "rhberro@gmail.com", password: "111222333" },
+  defaultValues: { email: "", password: "" },
   resolver: zodResolver(SigninFormSchema),
   mode: "all",
 };
@@ -53,8 +53,9 @@ const useFormParameters: UseFormProps<SigninFormValues> = {
 type FormFooterProps = UseFormStateProps<SigninFormValues> & { pending: boolean };
 
 function FormFooter(props: FormFooterProps) {
-  const { pending, ...properties } = props;
-  const { isValid } = useFormState(properties);
+  const { pending, control } = props;
+  const useFormStateParameters = { control };
+  const { isValid } = useFormState(useFormStateParameters);
   return (
     <Button type="submit" disabled={isValid === false || pending} size="large">
       Sign In

@@ -17,7 +17,7 @@ export async function signup(
     email: form.get("email") as string,
     password: form.get("password") as string,
   };
-  const validation = await SignupFormSchema.safeParse(data);
+  const validation = SignupFormSchema.safeParse(data);
   if (validation.error && validation.error.errors) {
     return {
       message: "Failed to create your account due to invalid form data.",
@@ -27,9 +27,6 @@ export async function signup(
   const response = await client.auth.signUp(data);
   if (response.error) {
     return { message: "Failed to create your account, try again later." };
-  }
-  if (response.data.user) {
-    client.auth.updateUser(response.data.user);
   }
   redirect("/dashboard");
 }
