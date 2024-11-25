@@ -24,11 +24,11 @@ export function SignupForm(props: React.PropsWithChildren<SignupFormProps>) {
       <FieldSet disabled={pending}>
         <Label>
           Email
-          <MemoField as={Input} control={form.control} name="email" placeholder="your@email.co" type="email" required />
+          <MemoField as={Input} autoComplete="email" control={form.control} name="email" placeholder="your@email.co" type="email" required />
         </Label>
         <Label>
           Password
-          <MemoField as={Input} control={form.control} name="password" placeholder="•••••••" type="password" required />
+          <MemoField as={Input} autoComplete="current-password" control={form.control} name="password" placeholder="•••" type="password" required />
         </Label>
       </FieldSet>
       <FormFooter control={form.control} pending={pending} />

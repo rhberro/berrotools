@@ -2,17 +2,11 @@
 
 import { redirect } from "next/navigation";
 
-import {
-  SignupFormState,
-  SignupFormValues,
-} from "@/interfaces/authentication/signup";
+import { SignupFormState, SignupFormValues } from "@/interfaces/authentication/signup";
 import { SignupFormSchema } from "@/schemas/authentication/signup";
 import { createClientForServer } from "@/utilities/server";
 
-export async function signup(
-  state: SignupFormState,
-  form: FormData,
-): Promise<SignupFormState | undefined> {
+export async function signup(state: SignupFormState, form: FormData): Promise<SignupFormState | undefined> {
   const data: SignupFormValues = {
     email: form.get("email") as string,
     password: form.get("password") as string,

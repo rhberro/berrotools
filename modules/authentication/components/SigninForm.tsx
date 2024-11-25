@@ -24,11 +24,11 @@ export function SigninForm(props: React.PropsWithChildren<SigninFormProps>) {
       <FieldSet disabled={pending}>
         <Label>
           Email
-          <MemoField as={Input} control={form.control} name="email" placeholder="your@email.co" type="email" required />
+          <MemoField as={Input} autoComplete="email" control={form.control} name="email" placeholder="your@email.co" type="email" required />
         </Label>
         <Label>
           Password
-          <MemoField as={Input} control={form.control} name="password" placeholder="•••••••" type="password" required />
+          <MemoField as={Input} autoComplete="current-password" control={form.control} name="password" placeholder="•••" type="password" required />
         </Label>
       </FieldSet>
       <FormFooter control={form.control} pending={pending} />
@@ -45,16 +45,23 @@ export function SigninForm(props: React.PropsWithChildren<SigninFormProps>) {
 const MemoField = React.memo(Field);
 
 const useFormParameters: UseFormProps<SigninFormValues> = {
-  defaultValues: { email: "", password: "" },
+  defaultValues: {
+    email: "",
+    password: "",
+  },
   resolver: zodResolver(SigninFormSchema),
   mode: "all",
 };
 
-type FormFooterProps = UseFormStateProps<SigninFormValues> & { pending: boolean };
+type FormFooterProps = UseFormStateProps<SigninFormValues> & {
+  pending: boolean;
+};
 
 function FormFooter(props: FormFooterProps) {
   const { pending, control } = props;
-  const useFormStateParameters = { control };
+  const useFormStateParameters = {
+    control,
+  };
   const { isValid } = useFormState(useFormStateParameters);
   return (
     <Button type="submit" disabled={isValid === false || pending} size="large">

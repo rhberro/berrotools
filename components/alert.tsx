@@ -11,13 +11,13 @@ export function Alert(props: AlertProps, ref: React.Ref<HTMLDivElement>) {
   return <div className={className} role="alert" {...properties} ref={ref} />;
 }
 
-const alertVariants = cva("flex flex-col w-full rounded-md border px-4 py-3", {
+const alertVariants = cva("flex flex-col w-full rounded-md  px-4 py-3", {
   variants: {
     variant: {
-      default: "border-stone-700 text-stone-700",
+      default: "border-stone-700 text-stone-700 bg-stone-50",
       error: "border-red-700 text-red-700 bg-red-50",
-      success: "border-green-700 text-green-700",
-      warning: "border-yellow-700 text-yellow-700",
+      success: "border-green-700 text-green-700 bg-green-50",
+      warning: "border-yellow-700 text-yellow-700 bg-yellow-50",
     },
   },
   defaultVariants: {
